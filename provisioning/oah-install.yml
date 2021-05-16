@@ -22,7 +22,7 @@
     - oah.oah
     - oah.desktop
     - oah.atom
-    - oah.kob
+    - oah.kobman
 
 
     # Conditionally-installed roles.
