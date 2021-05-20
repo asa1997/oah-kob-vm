@@ -38,6 +38,8 @@ echo 'vagrant:vagrant' | chpasswd
 ls -al /home/
 echo "add sudo privilege to user vagrant"
 cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/admin
+echo "value of 90-cloud"
+cat /etc/sudoers.d/90-cloud-init-users
 chmod +w /etc/sudoers.d/admin
 ls -al /etc/sudoers.d/
 sed -i 's/ubuntu/vagrant/g' /etc/sudoers.d/admin
