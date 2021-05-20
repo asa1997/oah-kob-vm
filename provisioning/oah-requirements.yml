@@ -20,9 +20,9 @@
 - src: https://github.com/asa1997/ansible-role-oah-desktop
   version: master
   name: oah.desktop
-- src: https://github.com/openapphack/ansible-role-oah-atom
-  version: master
-  name: oah.atom
+# - src: https://github.com/openapphack/ansible-role-oah-atom
+#   version: master
+#   name: oah.atom
 - src: https://github.com/asa1997/ansible-role-oah-kobman
   version: master
   name: oah.kobman
