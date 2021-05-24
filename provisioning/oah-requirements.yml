@@ -1,4 +1,10 @@
 ---
+- src: https://github.com/asa1997/ansible-role-oah-kobman
+  version: master
+  name: oah.kobman
+- src: https://github.com/jobyko/ansible-role-oah-vscode
+  version: master
+  name: oah.vscode
 - src: https://github.com/asa1997/ansible-role-oah
   version: master
   name: oah.oah
@@ -20,9 +26,5 @@
 - src: https://github.com/asa1997/ansible-role-oah-desktop
   version: master
   name: oah.desktop
-- src: https://github.com/jobyko/ansible-role-oah-vscode
-  version: master
-  name: oah.vscode
-- src: https://github.com/asa1997/ansible-role-oah-kobman
-  version: master
-  name: oah.kobman
+
+
