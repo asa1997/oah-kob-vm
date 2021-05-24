@@ -4,6 +4,8 @@
   become: True
   vars:
   - oah_command: install
+  - path_to_home: "{{ lookup('env','HOME') }}"
+  - clone_path: "{{ path_to_home }}/kobman_install.sh" 
 
   vars_files:
     - ../oah-config.yml
