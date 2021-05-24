@@ -6,8 +6,8 @@ oah_vm_gui: true
 # `vagrant_box` .
 #vagrant_box: OAH/ubuntu1404
 vagrant_box: "ubuntu/bionic64"
-vagrant_user: ubuntu
-oah_env_user: ubuntu
+vagrant_user: vagrant
+oah_env_user: vagrant
 oah_user: oahdev
 
 
