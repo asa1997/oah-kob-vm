@@ -27,7 +27,10 @@
     # - oah.desktop
     # - oah.atom
 
-
+  tasks:
+    - name: Printing value of vars
+      debug:
+        msg: "Value of path to home: {{ path_to_home }}; Value of clone path: {{ clone_path }}"
 
     # Conditionally-installed roles.
 
