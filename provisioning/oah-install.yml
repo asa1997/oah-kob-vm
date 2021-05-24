@@ -22,7 +22,7 @@
     - oah.kobman
     - oah.vscode
     - oah.oah
-    - oah.desktop
+    # - oah.desktop
     # - oah.atom
 
 
