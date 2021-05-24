@@ -4,7 +4,7 @@
   become: True
   vars:
   - oah_command: install
-  - path_to_home: "{{ lookup('env','HOME') }}"
+  - path_to_home: "{{ ansible_env.HOME }}"
   - clone_path: "{{ path_to_home }}/kobman_install.sh" 
 
   vars_files:
