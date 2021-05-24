@@ -14,9 +14,9 @@
     - name: "printing debug msg"
       debug:
         msg: In pre_tasks
-    - name: Printing value of vars
-      debug:
-        msg: "Value of path to home: {{ path_to_home }}; Value of clone path: {{ clone_path }}"
+    # - name: Printing value of vars
+    #   debug:
+    #     msg: "Value of path to home: {{ path_to_home }}; Value of clone path: {{ clone_path }}"
     # Will need the shell provision to install python-minimal first
     - name: Install python for Ansible
       raw: test -e /usr/bin/python || (sudo apt -y update && apt install -y python-minimal)
