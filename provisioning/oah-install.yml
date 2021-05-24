@@ -4,7 +4,7 @@
   become: True
   vars:
   - oah_command: install
-  - path_to_home: "{{ lookup('env','HOME') }}"
+  - path_to_home: "/home/{{ vagrant_user }}"
   - clone_path: "{{ path_to_home }}/kobman_install.sh" 
 
   vars_files:
