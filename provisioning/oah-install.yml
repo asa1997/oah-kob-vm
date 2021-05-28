@@ -24,10 +24,11 @@
       when: ansible_os_family == 'Debian'
   roles:
     # Essential roles.
-    - oah.desktop
     - oah.kobman
     - oah.vscode
     - oah.oah
+    - oah.desktop
+
     
     # - oah.atom
 
