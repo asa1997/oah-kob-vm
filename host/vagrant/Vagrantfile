@@ -31,41 +31,41 @@ vconfig = YAML::load_file("#{dir}/oah-config.yml")
 
 
 
-$script = <<SCRIPT
-echo "create user vagrant"
-adduser --disabled-password --gecos "" vagrant
-echo 'vagrant:vagrant' | chpasswd
-echo "add sudo privilege to user vagrant"
-# cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/admin
-# echo "value of 90-cloud"
-# cat /etc/sudoers.d/90-cloud-init-users
-# chmod +w /etc/sudoers.d/admin
-# ls -al /etc/sudoers.d/
-# sed -i 's/ubuntu/vagrant/g' /etc/sudoers.d/admin
-# cat /etc/sudoers.d/admin
-echo "enable ssh access for user vagrant"
-echo "generating authorized_keys"
-# ls /home/ubuntu/.ssh/
-# cp /home/ubuntu/.ssh/id_rsa.pub /home/ubuntu/.ssh/authorized_keys
-# chmod 600 /home/ubuntu/.ssh/authorized_keys
-mkdir -p /home/vagrant/.ssh
-# echo "listing contents of under /home/ubuntu/.ssh"
-# ls /home/ubuntu/.ssh
-chown vagrant:vagrant /home/vagrant/.ssh
-# cat /home/ubuntu/.ssh/authorized_keys >> /home/vagrant/.ssh/authorized_keys
-chown vagrant:vagrant /home/vagrant/.ssh/authorized_keys
-su - vagrant -c "/home/vagrant/.ssh/authorized_keys"
-chmod 600 /home/vagrant/.ssh/authorized_keys
-# ls -al /home/vagrant/.ssh
-chmod 700 /home/vagrant/.ssh
-# ls -al /home/vagrant
-# sudo apt update -y
-# sudo apt full-upgrade -y
-# sudo apt-get autoremove -y
-# test -e /usr/bin/python || (sudo apt -y update && apt install -y python-minimal)
-sudo systemctl disable apt-daily.service
-sudo systemctl disable apt-daily.timer
-SCRIPT
+# $script = <<SCRIPT
+# echo "create user vagrant"
+# adduser --disabled-password --gecos "" vagrant
+# echo 'vagrant:vagrant' | chpasswd
+# echo "add sudo privilege to user vagrant"
+# # cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/admin
+# # echo "value of 90-cloud"
+# # cat /etc/sudoers.d/90-cloud-init-users
+# # chmod +w /etc/sudoers.d/admin
+# # ls -al /etc/sudoers.d/
+# # sed -i 's/ubuntu/vagrant/g' /etc/sudoers.d/admin
+# # cat /etc/sudoers.d/admin
+# echo "enable ssh access for user vagrant"
+# echo "generating authorized_keys"
+# # ls /home/ubuntu/.ssh/
+# # cp /home/ubuntu/.ssh/id_rsa.pub /home/ubuntu/.ssh/authorized_keys
+# # chmod 600 /home/ubuntu/.ssh/authorized_keys
+# mkdir -p /home/vagrant/.ssh
+# # echo "listing contents of under /home/ubuntu/.ssh"
+# # ls /home/ubuntu/.ssh
+# chown vagrant:vagrant /home/vagrant/.ssh
+# # cat /home/ubuntu/.ssh/authorized_keys >> /home/vagrant/.ssh/authorized_keys
+# chown vagrant:vagrant /home/vagrant/.ssh/authorized_keys
+# su - vagrant -c "/home/vagrant/.ssh/authorized_keys"
+# chmod 600 /home/vagrant/.ssh/authorized_keys
+# # ls -al /home/vagrant/.ssh
+# chmod 700 /home/vagrant/.ssh
+# # ls -al /home/vagrant
+# # sudo apt update -y
+# # sudo apt full-upgrade -y
+# # sudo apt-get autoremove -y
+# # test -e /usr/bin/python || (sudo apt -y update && apt install -y python-minimal)
+# sudo systemctl disable apt-daily.service
+# sudo systemctl disable apt-daily.timer
+# SCRIPT
 
 # $script = <<SCRIPT
 # echo "create user vagrant"
@@ -188,7 +188,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       mount_options: synced_folder.include?('mount_options') ? synced_folder['mount_options'] : []
   end
 
-  config.vm.provision "shell", inline: $script
+  # config.vm.provision "shell", inline: $script
   # Provision using Ansible provisioner if Ansible is installed on host.
 
   if which('ansible-playbook')
