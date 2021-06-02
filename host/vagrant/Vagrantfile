@@ -218,6 +218,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.cpus = vconfig['vagrant_cpus']
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--ioapic", "on"]
+    # Set the video memory to 128Mb:
+    v.customize ["modifyvm", :id, "--vram", "128"]
+    # Enable 3D acceleration:
+    v.customize ["modifyvm", :id, "--accelerate3d", "on"]
     v.gui=vconfig['oah_vm_gui']
   end
   config.vm.define vconfig['vagrant_machine_name'] do |d|
