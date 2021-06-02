@@ -31,7 +31,7 @@ vconfig = YAML::load_file("#{dir}/oah-config.yml")
 
 
 
-# $script = <<SCRIPT
+$script = <<SCRIPT
 # echo "create user vagrant"
 # adduser --disabled-password --gecos "" vagrant
 # echo 'vagrant:vagrant' | chpasswd
@@ -59,13 +59,13 @@ vconfig = YAML::load_file("#{dir}/oah-config.yml")
 # # ls -al /home/vagrant/.ssh
 # chmod 700 /home/vagrant/.ssh
 # # ls -al /home/vagrant
-# # sudo apt update -y
-# # sudo apt full-upgrade -y
-# # sudo apt-get autoremove -y
+sudo apt update -y
+sudo apt full-upgrade -y
+sudo apt-get autoremove -y
 # # test -e /usr/bin/python || (sudo apt -y update && apt install -y python-minimal)
 # sudo systemctl disable apt-daily.service
 # sudo systemctl disable apt-daily.timer
-# SCRIPT
+SCRIPT
 
 # $script = <<SCRIPT
 # echo "create user vagrant"
@@ -188,7 +188,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       mount_options: synced_folder.include?('mount_options') ? synced_folder['mount_options'] : []
   end
 
-  # config.vm.provision "shell", inline: $script
+  config.vm.provision "shell", inline: $script
   # Provision using Ansible provisioner if Ansible is installed on host.
 
   if which('ansible-playbook')
