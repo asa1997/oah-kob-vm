@@ -52,9 +52,9 @@ mkdir -p /home/vagrant/.ssh
 # echo "listing contents of under /home/ubuntu/.ssh"
 # ls /home/ubuntu/.ssh
 chown vagrant:vagrant /home/vagrant/.ssh
-cat /home/ubuntu/.ssh/authorized_keys >> /home/vagrant/.ssh/authorized_keys
+# cat /home/ubuntu/.ssh/authorized_keys >> /home/vagrant/.ssh/authorized_keys
 chown vagrant:vagrant /home/vagrant/.ssh/authorized_keys
-su - vagrant -c "cat /home/vagrant/.ssh/authorized_keys"
+su - vagrant -c "/home/vagrant/.ssh/authorized_keys"
 chmod 600 /home/vagrant/.ssh/authorized_keys
 # ls -al /home/vagrant/.ssh
 chmod 700 /home/vagrant/.ssh
