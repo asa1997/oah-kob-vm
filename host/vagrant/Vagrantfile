@@ -1,5 +1,6 @@
 # # -*- mode: ruby -*-
 # # vi: set ft=ruby :
+require 'io/console'
 
 VAGRANTFILE_API_VERSION = "2"
 Vagrant.require_version '>= 1.8.1'
@@ -30,11 +31,17 @@ end
 vconfig = YAML::load_file("#{dir}/oah-config.yml")
 
 
+puts "The user name is: #{vconfig['vagrant_user']}"
+
+puts "Enter the desired password for the VM:"
+input_pass = STDIN.noecho(&:gets).chomp
+
+# puts vconfig['vagrant_user']
 
 $script = <<SCRIPT
-# echo "create user vagrant"
-# adduser --disabled-password --gecos "" vagrant
-# echo 'vagrant:vagrant' | chpasswd
+echo "create user #{vconfig['vagrant_user']}"
+adduser --disabled-password --gecos "" #{vconfig['vagrant_user']}
+echo '#{vconfig['vagrant_user']}:#{input_pass}' | chpasswd
 # echo "add sudo privilege to user vagrant"
 # # cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/admin
 # # echo "value of 90-cloud"
@@ -187,7 +194,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       create: synced_folder.include?('create') ? synced_folder['create'] : false,
       mount_options: synced_folder.include?('mount_options') ? synced_folder['mount_options'] : []
   end
-
+  
   config.vm.provision "shell", inline: $script
   # Provision using Ansible provisioner if Ansible is installed on host.
 
